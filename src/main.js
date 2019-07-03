@@ -10,8 +10,10 @@ import 'element-ui/lib/theme-chalk/display.css'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/iconfont/iconfont.css'
 import axios from 'axios'
-axios.defaults.baseURL = 'http://sa.aixinjituan.com'
-
+// 生产环境和部署环境判断
+process.env.NODE_ENV === 'development' ? axios.defaults.baseURL = '' : axios.defaults.baseURL = 'http://sa.aixinjituan.com'
+// axios.defaults.baseURL = 'http://sa.aixinjituan.com'
+console.log(axios.defaults.baseURL)
 Vue.prototype.axios = axios
 
 // 引入mock.js
